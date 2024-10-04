@@ -4,6 +4,14 @@ if (phone === "no") {
 } else {
   document.getElementById("phoneL").innerHTML = localStorage.getItem("phone");
 }
+const phoneInput = document.getElementById('phoneLogin');
+const nextButton = document.querySelector('.next_button');
+
+phoneInput.addEventListener('input', function() {
+    const isValid = /^[0-9]{10}$/.test(phoneInput.value); // Adjust the regex as needed for your requirements
+    nextButton.disabled = !isValid;
+});
+
 document.getElementById("nameL").innerHTML = localStorage.getItem("name");
 document.getElementById("description").innerHTML =
   localStorage.getItem("description");
